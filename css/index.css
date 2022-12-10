@@ -1,0 +1,174 @@
+
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12pt;
+  --header-width: 6rem;
+}
+
+#container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#top {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 10%;
+  background-color: #FFFEE8;
+  box-shadow: 0 0 5px #404040;
+  z-index: 3;
+}
+
+#logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--header-width);
+  height: 100%;
+}
+
+#control {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - var(--header-width));
+  height: 100%;
+  user-select: none;
+}
+
+.button {
+  width: 3rem;
+  height: 3rem;
+  margin: 0.5rem;
+}
+
+#headers {
+  position: absolute;
+  width: var(--header-width);
+  height: 90%;
+  top: 10%;
+  background-color: #FFFEE8;
+  box-shadow: 0 0 5px #404040;
+  z-index: 2;
+}
+
+#scroll {
+  position: absolute;
+  left: var(--header-width);
+  width: calc(100% - var(--header-width));
+  height: 90%;
+  top: 10%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.column {
+  position: relative;
+  display: inline-block;
+  width: 5rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.column.today {
+  background-color: #F0F0FF;
+}
+
+.column.saturday {
+  border-left: solid 1px silver;
+}
+
+.column.sunday {
+  border-right: solid 1px silver;
+}
+
+.cell {
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100% / 10);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.cell:nth-child(5n-3) {
+  border-bottom: solid 1px silver;
+}
+
+.earliest::before, .latest::before, .shortest::before, .longest::before {
+  position: absolute;
+  font-size: 9pt;
+  margin-top: -26pt;
+}
+
+.earliest::before {
+  content: "earliest";
+}
+
+.latest::before {
+  content: "latest";
+}
+
+.shortest::before {
+  content: "shortest";
+}
+
+.longest::before {
+  content: "longest";
+}
+
+.cell:first-child {
+  border-top: none;
+}
+
+#scrim {
+  position: absolute;
+  background-color: #FFFEE8;
+  color: darkgray;
+  opacity: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1001;
+  box-sizing: border-box;
+  padding-top: 40px;
+  text-align: center;
+}
+
+#scrim.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#scrim.fadeOut {
+  animation-name: fadeOut;
+  animation-duration: 2s;
+}
+
+@media (pointer: fine) {
+  #headers {
+    overflow-x: scroll;
+  }
+}
+

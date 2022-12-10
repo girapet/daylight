@@ -1,0 +1,71 @@
+<html>
+<head>
+  <title>Daylight</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="icon" href="favicon.ico?v=1">
+</head>
+<body>
+  <div id="container">
+    <div id="top">
+      <div id="logo">
+        <div class="button">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path><path d="M12 3v1"></path><path d="M12 20v1"></path><path d="M3 12h1"></path><path d="M20 12h1"></path><path d="m18.364 5.636-.707.707"></path><path d="m6.343 17.657-.707.707"></path><path d="m5.636 5.636.707.707"></path><path d="m17.657 17.657.707.707"></path></svg>
+        </div>
+      </div>
+      <div id="control">
+        <div id="backmonth" class="button">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="11 17 6 12 11 7"></polyline>
+            <polyline points="18 17 13 12 18 7"></polyline>
+          </svg>
+        </div>
+        <div id="backweek" class="button">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </div>
+        <div id="today" class="button">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="7"></circle>
+          </svg>
+        </div>
+        <div id="forwardweek" class="button">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>        
+        </div>
+        <div id="forwardmonth" class="button">
+          <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="darkgray" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="13 17 18 12 13 7"></polyline>
+            <polyline points="6 17 11 12 6 7"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div id="headers">
+      <div class="cell">Day</div>
+      <div class="cell">Date</div>
+      <div class="cell">Twilight<br/>Begins</div>
+      <div class="cell">Sunrise</div>
+      <div class="cell">Noon</div>
+      <div class="cell">Sunset</div>
+      <div class="cell">Twilight<br/>Ends</div>
+      <div class="cell">Sunlight</div>
+      <div class="cell">Daylight</div>
+      <div class="cell">Night</div>
+    </div>
+    <div id="scroll">
+    </div>
+  </div>
+  <div id="scrim" class="show"></div>
+  <script src="js/luxon.min.js"></script>
+  <script type="module" src="js/index.js"></script>
+</body>
+</html>
